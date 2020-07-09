@@ -11,9 +11,9 @@
 </p>
 
 <p align="center">
-    <img alt="Tela 1" title="App" src="images/NovaBanda.png" width="70%"/>
-    <img alt="Tela 2" title="App" src="images/ListaDeBandas.png" width="70%"/>
-    <img alt="Tela 3" title="App" src="images/BandasPorGenero.png" width="70%"/>
+    <img alt="Tela 1" title="App" src="images/NovaBanda.png" width="50%"/>
+    <img alt="Tela 2" title="App" src="images/ListaDeBandas.png" width="50%"/>
+    <img alt="Tela 3" title="App" src="images/BandasPorGenero.png" width="50%"/>
 </p>
 
 ## ✦ Projeto
