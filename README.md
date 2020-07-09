@@ -18,7 +18,7 @@
 
 ## ✦ Projeto
 <p align="justify">
-O projeto consiste de um sistema de arquitetura MVC, com o intuito de possibilitar a construção de um catálogo de gêneros e bandas musicais. A aplicação construída também possibilita a análise de alguns dados interessantes através do cruzamento de informações acerca dos dados cadastrados.
+O projeto consiste em uma aplicação web, tendo como arquitetura o padrão MVC. O intuito é possibilitar a construção de um catálogo de gêneros e bandas musicais. A aplicação construída também possibilita a análise de alguns dados interessantes através do cruzamento de informações acerca dos dados cadastrados.
 </p>
 
 ## ✦ Tecnologias
