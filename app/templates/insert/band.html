@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Cadastrar uma nova Banda</h1>
+    </div>
+    <br>
+    <br>
+    <div>
+        <form action="{{ url_for('add_band') }}" method="POST">
+            <div class="d-flex justify-content-around">
+                <div class="mr-5">
+                    <label for="id">Identificador único da Banda</label>
+                    <input type="text" name="id" class="form-control " placeholder="Digite aqui o id..." required autofocus>
+                </div>
+                
+                <div class="ml-2">
+                    <label for="name">Nome da Banda</label>
+                    <input type="text" name="name" class="form-control" placeholder="Digite aqui o nome..." required>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="country_of_origin">País de Origem</label>
+                <input type="text" name="country_of_origin" class="form-control" placeholder="Digite aqui o país..." required>
+            </div>
+            <br>
+            <div>
+                <label for="name_genre">Gênero Musical</label>
+                <select name="name_genre" class="form-control" required>
+                    <option></option>
+                    {% for genre in genres %}
+                    <option>{{  genre.name  }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
+            <div>
+                <input class="btn btn-lg btn-danger btn-block" type="submit" value="Cadastrar">
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    {% if sucess != None and sucess == False %}
+        <div class="alert alert-danger" role="alert">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                        <br>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endif %}
+    {% if sucess != None and sucess == True %}
+        <div class="alert alert-success" role="alert">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                        <br>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Lista de Bandas por País</h1>
+    </div>
+    <br>
+    <br>
+    {% if countries %}
+        <div>
+            <form action="{{ url_for('bands_by_country') }}" method="POST">
+                <div>
+                    <label for="country_of_origin">Escolha um País cadastrado</label>
+                    <select name="country_of_origin" class="form-control" required>
+                        <option></option>
+                        {% for country in countries %}
+                            <option>{{  country  }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <input class="btn btn-lg btn-danger btn-block" type="submit" value="Pesquisar">
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="table-responsive">
+            {% block list_by_country %} {% endblock %}
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Sem bandas cadastradas
+        </div>
+    {% endif%}
+
+{% endblock %}

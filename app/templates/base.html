@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>WikiBand</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url_for('index')  }}">WikiBand</a>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                    <div class="sidebar-sticky pt-3">
+
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            Cadastrar Informações
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('add_genre')  }}">
+                                    <b>Adicionar Gênero</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('add_band')  }}">
+                                    <b>Adicionar Banda</b>
+                                </a>
+                            </li>
+                        </ul>
+                        <br>
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            Listar Informações
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('genres_list')  }}">
+                                    <b>Listar Gêneros</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('bands_list')  }}">
+                                    <b>Listar Bandas</b>
+                                </a>
+                            </li>
+                        </ul>
+                        <br>
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            Operações Especiais
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('bands_by_genre')}}">
+                                    <b>Bandas por Gênero</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('bands_by_country')}}">
+                                    <b>Bandas por País</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="{{ url_for('count_by_country')}}">
+                                    <b>Contagem por País</b>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 bg-gradient-light">
+
+                    <div class="flex-column d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                        {% block main %}  {% endblock%}
+                    </div>
+
+                    <!-- Grafico -->
+                    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+                </main>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src ="static/css/bootstrap.css"></script>
+    </body>
+    <!--
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script>
+    -->
+</html>

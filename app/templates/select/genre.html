@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Lista de Gêneros Cadastrados</h1>
+    </div>
+    <br>
+    <br>
+    {% if genres%}
+        <div class="table-responsive">
+            <table class="table align-middle table-striped table-sm table-dark table-bordered table-hover text-center">
+                <thead class="bg-danger">
+                    <tr>
+                        <td>Identificador (ID)</td>
+                        <td>Nome do Gênero</td>
+                        <td>Excluir gênero</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for genre in genres %}
+                        <tr>
+                            <td>{{  genre.id  }}</td>
+                            <td>{{  genre.name  }}</td>
+                            <td><a class="btn btn-lg btn-danger" href="/genre-delete/{{  genre.id  }}">X</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Sem gêneros musicais cadastrados
+        </div>
+    {% endif%}
+{% endblock %}

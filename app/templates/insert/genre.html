@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Cadastrar um novo Gênero Musical</h1>
+    </div>
+    <br>
+    <br>
+    <div>
+        <form class="" action="{{ url_for('add_genre') }}" method="POST">
+            <div>
+                <label for="id">Identificador único do Gênero</label>
+                <input type="text" name="id" class="form-control" placeholder="Digite aqui o id..." required autofocus>
+            </div>
+            <br>
+            <div>
+                <label for="name">Nome do Gênero</label>
+                <input type="text" name="name" class="form-control" placeholder="Digite aqui o nome..." required>
+            </div>
+            <br>
+            <div>
+                <input class="btn btn-lg btn-danger btn-block" type="submit" value="Cadastrar">
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    {% if sucess != None and sucess == False %}
+        <div class="alert alert-danger" role="alert">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                        <br>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endif %}
+    {% if sucess != None and sucess == True %}
+        <div class="alert alert-success" role="alert">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                        <br>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endif %}
+{% endblock %}

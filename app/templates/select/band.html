@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Lista de Bandas Cadastradas</h1>
+    </div>
+    <br>
+    <br>
+    {% if bands%}
+        <div class="table-responsive">
+            <table class="table align-middle table-striped table-sm table-dark table-bordered table-hover text-center">
+                <thead class="bg-danger">
+                    <tr>
+                        <td>Identificador (ID)</td>
+                        <td>Nome da Banda</td>
+                        <td>País de Origem</td>
+                        <td>Gênero Musical</td>
+                        <td>Excluir banda</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for band in bands %}
+                        <tr>
+                            <td>{{  band.id  }}</td>
+                            <td>{{  band.name  }}</td>
+                            <td>{{  band.country_of_origin  }}</td>
+                            <td>{{  band.id_genre  }}  ({{  band.name_genre }})</td>
+                            <td><a class="btn btn-lg btn-danger" href="/band-delete/{{  band.id  }}">X</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Sem bandas cadastradas
+        </div>
+    {% endif%}
+{% endblock %}

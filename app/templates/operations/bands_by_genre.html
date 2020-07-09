@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <br>
+    <div>
+        <h1 class="h2">Lista de Bandas por Gênero</h1>
+    </div>
+    <br>
+    <br>
+    {% if bands%}
+        <div>
+            <form action="{{ url_for('bands_by_genre') }}" method="POST">
+                <div>
+                    <label for="name_genre">Escolha um Gênero Musical</label>
+                    <select name="name_genre" class="form-control" required>
+                        <option></option>
+                        {% for genre in genres %}
+                            <option>{{  genre.name  }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <input class="btn btn-lg btn-danger btn-block" type="submit" value="Pesquisar">
+                </div>
+            </form>
+        </div>
+
+        <br>
+        <div class="table-responsive">
+            {% block list_by_genre %} {% endblock %}
+        </div>
+    {% else %}
+        <div class="text-center alert alert-danger" role="alert">
+            Sem bandas cadastradas
+        </div>
+    {% endif%}
+
+{% endblock %}

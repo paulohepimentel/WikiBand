@@ -1,0 +1,23 @@
+{% extends 'operations/bands_by_country.html' %}
+
+{% block list_by_country %}
+    <hr>
+    <table class="table align-middle table-striped table-sm table-dark table-bordered table-hover text-center">
+        <thead class="bg-danger">
+            <tr>
+                <td>Identificador(ID)</td>
+                <td>Nome da Banda</td>
+                <td>Gênero Musical</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for band in bands %}
+            <tr>
+                <td>{{  band.id  }}</td>
+                <td>{{  band.name  }}</td>
+                <td>{{  band.id_genre  }}  ({{  band.name_genre }})</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
