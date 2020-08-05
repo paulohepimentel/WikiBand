@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Logo" title="WkiBand" src="images/wikilogo.png" width="360px" />
+    <img alt="logo" title="WkiBand" src="images/wikilogo.png" width="360px" />
 </h1>
 
 <p align="center">
